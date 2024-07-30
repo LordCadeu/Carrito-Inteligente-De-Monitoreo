@@ -53,3 +53,60 @@ Sigue estos pasos para instalar y configurar el proyecto:
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/LordCadeu/Carrito-Inteligente-De-Monitoreo.git
+
+2. Navega al directorio del proyecto:
+   ```bash
+   cd carrito-inteligente
+   
+3. Instala las dependencias:
+   ```bash
+   npm install
+
+## Uso
+
+### ESP32-CAM
+
+#### Configuración de Arduino IDE:
+
+1. Instala el soporte para ESP32 en Arduino IDE siguiendo [estas instrucciones](https://github.com/espressif/arduino-esp32#installation-instructions).
+2. Abre Arduino IDE y selecciona la placa `ESP32 Wrover Module` en `Herramientas > Placa > ESP32 Wrover Module`.
+3. Instala la librería `ESP32-CAM` desde el gestor de librerías.
+
+#### Carga del Código:
+
+1. Abre el sketch `carrito_inteligente.ino` que se encuentra en la carpeta `arduino`.
+2. Configura los parámetros de tu red WiFi en el sketch.
+3. Carga el código en la ESP32-CAM.
+
+### Node-RED
+
+#### Instalación de Node-RED:
+
+1. Instala Node-RED en tu Raspberry Pi siguiendo [estas instrucciones](https://nodered.org/docs/getting-started/raspberrypi).
+
+#### Configuración del Dashboard:
+
+1. Importa el flow `carrito_inteligente_flow.json` que se encuentra en la carpeta `node-red`.
+2. Asegúrate de tener instalados los siguientes nodos adicionales:
+   - `node-red-dashboard`: Para la interfaz de control del joystick.
+   - `node-red-contrib-telegrambot`: Para enviar mensajes a Telegram.
+
+#### Uso del Joystick en el Dashboard:
+
+1. Accede al dashboard de Node-RED desde tu navegador en `http://<tu_ip_de_raspberry_pi>:1880/ui`.
+2. Utiliza el joystick en la interfaz para controlar el movimiento del carrito.
+
+#### Envío de Notificaciones a Telegram:
+
+1. Configura el nodo de Telegram con tu bot token y chat ID.
+2. Asegúrate de que los nodos de detección de objetos estén correctamente configurados para enviar mensajes a Telegram cuando se detecte un objeto.
+
+    
+
+
+
+
+## Créditos
+-Aragón Díaz Yessica Gabriela
+-Jaime Oliveros Diego Iván
+-Luna Benítez Brian Hernán
