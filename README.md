@@ -107,6 +107,6 @@ Sigue estos pasos para instalar y configurar el proyecto:
 
 
 ## Créditos
--Aragón Díaz Yessica Gabriela
--Jaime Oliveros Diego Iván
--Luna Benítez Brian Hernán
+  . Aragón Díaz Yessica Gabriela
+  . Jaime Oliveros Diego Iván
+  . Luna Benítez Brian Hernán
