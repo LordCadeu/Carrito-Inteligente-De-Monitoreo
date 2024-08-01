@@ -214,9 +214,9 @@ Permite implementar una solución innovadora para mejorar la seguridad y la log�
 
 
 ## Créditos
-  . Aragón Díaz Yessica Gabriela
-  . Jaime Oliveros Diego Iván
-  . Luna Benítez Brian Hernán
+- Aragón Díaz Yessica Gabriela
+- Jaime Oliveros Diego Iván
+- Luna Benítez Brian Hernán
 
 
 ## Agradecimientos
