@@ -201,15 +201,14 @@ Cambia el nombre del Bot, por el creado en Telegram.
 ![Vista Carrito](https://drive.google.com/uc?export=view&id=1RVF1NoQTFSUIVm7y7NbtMdiXCYd94EHb)
 
 ### Ejemplo de uso:
-![Interfaz del Dashboard](https://drive.google.com/uc?export=view&id=)
+![Interfaz del Dashboard](https://drive.google.com/uc?export=view&id=1yDXHyg-rv4wxEwKaj0xDhi7v23-Mzmtu)
 
 La interfaz mostrará el Joystick de movimiento, mientras que el Slider servirá para cambiar la vista de la cámara. Asimismo, se muestran los datos de distancia captada por el sensor.
 
-![Movimiento Carrito y Cámara](https://drive.google.com/uc?export=view&id=)
+![Movimiento Carrito y Cámara](https://drive.google.com/uc?export=view&id=1lWt3Lf004Ecdwx9--iPEXUQvUQArUAyh)
 
-Ejemplo de movimiento del carrito y de la cámara.
 
-[Link al video]()
+Ejemplo de movimiento del carrito y de la cámara. [Video de demostración](https://drive.google.com/file/d/1gK1cv0e9di2RRPNfv-FrCzitGafuj8BN/view?usp=sharing)
 
 
 ## Caso de uso:
