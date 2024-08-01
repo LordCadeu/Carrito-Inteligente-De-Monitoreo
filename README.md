@@ -194,11 +194,23 @@ Cambia el nombre del Bot, por el creado en Telegram.
 
 ![Configuración TokenBot ](https://drive.google.com/uc?export=view&id=1P439zp3ty86hYFqsgo_H4HXCE9IzezKt)
 
-### Ejemplo de uso:
+## Funcionamiento
+
+### Vista del Carrito:
 
 ![Vista Carrito](https://drive.google.com/uc?export=view&id=1RVF1NoQTFSUIVm7y7NbtMdiXCYd94EHb)
+
+### Ejemplo de uso:
 ![Interfaz del Dashboard](https://drive.google.com/uc?export=view&id=)
+
+La interfaz mostrará el Joystick de movimiento, mientras que el Slider servirá para cambiar la vista de la cámara. Asimismo, se muestran los datos de distancia captada por el sensor.
+
 ![Movimiento Carrito y Cámara](https://drive.google.com/uc?export=view&id=)
+
+Ejemplo de movimiento del carrito y de la cámara.
+
+[Link al video]()
+
 
 ## Caso de uso:
 
