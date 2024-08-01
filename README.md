@@ -196,9 +196,9 @@ Cambia el nombre del Bot, por el creado en Telegram.
 
 ### Ejemplo de uso:
 
-![Movimiento Carrito](https://drive.google.com/uc?export=view&id=)
+![Vista Carrito](https://drive.google.com/uc?export=view&id=1RVF1NoQTFSUIVm7y7NbtMdiXCYd94EHb)
 ![Interfaz del Dashboard](https://drive.google.com/uc?export=view&id=)
-![Movimiento Cámara](https://drive.google.com/uc?export=view&id=)
+![Movimiento Carrito y Cámara](https://drive.google.com/uc?export=view&id=)
 
 ## Caso de uso:
 
