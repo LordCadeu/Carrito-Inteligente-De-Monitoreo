@@ -18,14 +18,13 @@ Desarrollar un prototipo de carro inteligente para monitoreo y detección de obj
 - Reducción de incidentes de seguridad mediante la detección de situaciones inusuales.
 - Mejora en la toma de decisiones preventivas.
 - Monitoreo constante mediante recolección de imágenes.
-![Configuración del circuito 2](https://drive.google.com/uc?export=view&id=ID_DE_LA_IMAGEN)
 
 
 ## Requisitos
 - Raspberry Pi 4
 - ESP32-CAM
 - Sensor Ultrasónico
-- ServoMotor
+- Servomotor
 - Kit Carrito 4WD
 - Driver L298N
 - Node-RED
@@ -81,37 +80,80 @@ python3 get.py
 ```
 3. Una vez configurado, abre Arduino IDE y selecciona la placa `ESP32` en `Herramientas > Placa > ESP32 > AI Thinker ESP32-CAM`.
 4. Configura las siguientes caracteristicas:
-![Configuración del circuito 2](https://drive.google.com/uc?export=view&id=1kHD4CXwOYup32zElOJl1UFbpypb1Lw_-)
+   
+![Configuración de características de la placa](https://drive.google.com/uc?export=view&id=1kHD4CXwOYup32zElOJl1UFbpypb1Lw_-)
 
 
 #### Carga del Código:
 
 1. Abre el sketch `CameraWebServerUltrasonico.ino` en el IDE de Arduino
-2. Configura los parámetros de tu red WiFi, IP de tu Raspberry Pi y Topico de MQTT en el sketch.
+2. Configura los parámetros de tu red WiFi, IP de la Raspberry Pi y el nombre del tópico de MQTT en el sketch.
 3. Carga el código en la ESP32-CAM.
+4. Guarda la IP generada, para configurar la conexión en Node-RED más adelante
 
-### Node-RED
 
 #### Instalación de Node-RED:
-
 1. Instala Node-RED en tu Raspberry Pi siguiendo [estas instrucciones](https://nodered.org/docs/getting-started/raspberrypi).
 
-#### Configuración del Dashboard:
-
+### Configuración del Flow en Node-RED:
 1. Importa el flow `CAMUltrasonico.json` en Node-RED.
 2. Asegúrate de tener instalados los siguientes nodos adicionales:
    - `node-red-dashboard`: Para la interfaz de control de monitoreo.
    - `node-red-contrib-telegrambot`: Para enviar mensajes a Telegram.
    - `node-red-contrib-ui-joystick`: Para configurar el joystick virtual.
    - `node-red-node-pi-gpio`: Para la configuración de pines GPIO de la Raspberry Pi.
-     
-Al importar:
+
+
+#### Configuración de los Nodos
+El flujo del joystick se vera así:
+> #### ⚠️ Nota
+> 
+> Si conectaste conforme al circuito mostrado anteriormente, este flujo no requiere ningún cambio.
+>
+![Nodo Joystick](https://drive.google.com/uc?export=view&id=1SlbkJIzV_Y5nsaqykafrJ3jW41MpRZaa)
+
+
+Flujo MQTT:
+![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=1pkWTdG7wEtfFRdJ4lhcTubM9WBmmWGtd)
+
+- Para configurarlo: 
+1. Haz clic en el Nodo Template "ESP32-CAM":
+   
+![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=1cFmeitIUm2DS3w1cASTMzBqo_tPY97_d)
+
+Cambia la url por la designada en tu ESP32-CAM al cargar el código en Arduino IDE.
+
+2. En el Nodo MQTT:
+
+![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=18uHPqzY79aKesPvswjjCNYHxgttmsmtc)
+
+En el apartado Topic, cambia al nombre del tópico que hayas creado.
+
+3. Ahora ve al nodo http request:
+
+![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=1nPcnEwwb3JnD_kmKvOxvObTWbwwm7WJz)
+
+Cambia la url por la designada en tu ESP32-CAM al cargar el código en Arduino IDE.
+
+4. Por ultimo, para el nodo Write File: 
+
+![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=1oWGrpusfjIzxPWtBHzccKIt4rUIuHExG)
+
+Cambia la dirección al directorio donde se guardarán las fotos. 
+
+Flujo Telegram:
+![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=1AxLBTW0mbPid60VZyB2__tjFpKzE3WTO)
+
+> #### ⚠️ Nota
+> 
+> Antes de configurarlo, deberás crear un Bot en Telegram. Para más información, consulta el siguiente [apartado](https://sendpulse.com/latam/knowledge-base/chatbot/telegram/create-telegram-chatbot)
+>
 
 
 #### Uso:
 
 1. Accede al dashboard de Node-RED desde tu navegador en `http://<tu_ip_de_raspberry_pi>:1880/ui`.
-2. Utiliza el joystick en la interfaz para controlar el movimiento del carrito.
+2. Utiliza el joystick  y el slider en la interfaz para controlar el movimiento del carrito y de la cámara.
 
 #### Envío de Notificaciones a Telegram:
 
@@ -138,5 +180,5 @@ ofreciendo una solución innovadora para mejorar la seguridad y la logística en
   . Luna Benítez Brian Hernán
 
 
-
-  Este proyecto fue realizado en el marco del curso IoT Essentials Developer impartido por [Codigo IoT ](https://www.codigoiot.com/) y organizado por la [Asociación Mexicana del Internet de las Cosas](https://www.asociacioniot.org/).
+## Agradecimientos
+Este proyecto fue realizado en el marco del curso IoT Essentials Developer impartido por [Codigo IoT ](https://www.codigoiot.com/) y organizado por la [Asociación Mexicana del Internet de las Cosas](https://www.asociacioniot.org/).
