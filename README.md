@@ -61,7 +61,7 @@ Estas instrucciones te permitiran instalar y configurar el proyecto:
 
 1. Instala las dependencias para ESP32 en Arduino IDE siguiendo [estas instrucciones](https://docs.espressif.com/projects/arduino-esp32/en/latest/installing.html). _Las instrucciones han sido obtenidas del [repositorio](https://github.com/espressif/arduino-esp32) de Espressif para Arduino._
 2. Instala los drivers del ESP32 para programarlo, usando los siguientes comandos:
-> ## ⚠️ Nota
+> ### **⚠️ Importante:**
 > 
 > Para ejecutar estos comandos es importante tener instalado GIT.
 > 
@@ -92,8 +92,15 @@ python3 get.py
 4. Guarda la IP generada, para configurar la conexión en Node-RED más adelante
 
 
-#### Instalación de Node-RED:
+## Configuración de Node-RED
+
+### Instalación de Node-RED:
 1. Instala Node-RED en tu Raspberry Pi siguiendo [estas instrucciones](https://nodered.org/docs/getting-started/raspberrypi).
+2. Para mayor accesibilidad configura el inicio automático de Node-RED. Abre la terminal y ejecuta el siguiente comando:
+```bash
+sudo systemctl enable nodered.service
+```
+
 
 ### Configuración del Flow en Node-RED:
 1. Importa el flow `CAMUltrasonico.json` en Node-RED.
@@ -104,9 +111,9 @@ python3 get.py
    - `node-red-node-pi-gpio`: Para la configuración de pines GPIO de la Raspberry Pi.
 
 
-#### Configuración de los Nodos
+## Configuración de los Nodos
 El flujo del joystick se vera así:
-> #### ⚠️ Nota
+> #### ⚠️ Nota:
 > 
 > Si conectaste conforme al circuito mostrado anteriormente, este flujo no requiere ningún cambio.
 >
@@ -119,59 +126,91 @@ Flujo MQTT:
 - Para configurarlo: 
 1. Haz clic en el Nodo Template "ESP32-CAM":
    
-![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=1cFmeitIUm2DS3w1cASTMzBqo_tPY97_d)
+![Configuración Cámara](https://drive.google.com/uc?export=view&id=1cFmeitIUm2DS3w1cASTMzBqo_tPY97_d)
 
 Cambia la url por la designada en tu ESP32-CAM al cargar el código en Arduino IDE.
 
 2. En el Nodo MQTT:
 
-![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=18uHPqzY79aKesPvswjjCNYHxgttmsmtc)
+![Configuración Mqtt](https://drive.google.com/uc?export=view&id=18uHPqzY79aKesPvswjjCNYHxgttmsmtc)
 
 En el apartado Topic, cambia al nombre del tópico que hayas creado.
 
-3. Ahora ve al nodo http request:
+3. Ahora ve al nodo HTTP request:
 
-![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=1nPcnEwwb3JnD_kmKvOxvObTWbwwm7WJz)
+![Configuración url](https://drive.google.com/uc?export=view&id=1nPcnEwwb3JnD_kmKvOxvObTWbwwm7WJz)
 
 Cambia la url por la designada en tu ESP32-CAM al cargar el código en Arduino IDE.
 
-4. Por ultimo, para el nodo Write File: 
+4. Por ultimo, para el nodo Write file: 
 
-![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=1oWGrpusfjIzxPWtBHzccKIt4rUIuHExG)
+![Configuración Write file](https://drive.google.com/uc?export=view&id=1rIcNwGW4ruoimGUj3uLoqgKnA1Vu8no0)
 
 Cambia la dirección al directorio donde se guardarán las fotos. 
 
+
+### Envío de Notificaciones a Telegram:
 Flujo Telegram:
-![Nodo MQTT y ESP32-CAM](https://drive.google.com/uc?export=view&id=1AxLBTW0mbPid60VZyB2__tjFpKzE3WTO)
-
-> #### ⚠️ Nota
+> ### **⚠️ Importante:**
 > 
-> Antes de configurarlo, deberás crear un Bot en Telegram. Para más información, consulta el siguiente [apartado](https://sendpulse.com/latam/knowledge-base/chatbot/telegram/create-telegram-chatbot)
+> Antes de configurarlo, deberás crear un Bot en Telegram. Para más información, consulta el siguiente [apartado](https://sendpulse.com/latam/knowledge-base/chatbot/telegram/create-telegram-chatbot).
 >
+![Nodo Telegram](https://drive.google.com/uc?export=view&id=1AxLBTW0mbPid60VZyB2__tjFpKzE3WTO)
 
 
-#### Uso:
+- Para configurarlo:
+1. En el Nodo Telegram Sender:
+   
+![Configuración Bot](https://drive.google.com/uc?export=view&id=1xRq7QRayrZ6UHhDs9TOZZp_gnuSwhgLT)
+
+Cambia el nombre del Bot, por el creado en Telegram.
+
+2. Haz clic en editar y añade el token del Bot:
+   
+![Configuración TokenBot ](https://drive.google.com/uc?export=view&id=1Bbsu5phBAt7kNERbfOUDe1idY_2wRxW6)
+
+3. Abre el nodo Watch file y añade la dirección donde se guardaron las fotos:
+
+![Configuración TokenBot ](https://drive.google.com/uc?export=view&id=1p-17JlIfV2HOUYThMQ7Bt9XieH_m8aEv)
+
+> **⚠️ Importante:**
+> Asegúrate de configurar correctamente el entorno antes de ejecutar el proyecto.
+> 
+
+ 
+## Uso:
 
 1. Accede al dashboard de Node-RED desde tu navegador en `http://<tu_ip_de_raspberry_pi>:1880/ui`.
+
+![Vista Dashboard](https://drive.google.com/uc?export=view&id=1maa3yPvu2hxGT-C5u29EKql66BeggRKq)
+
 2. Utiliza el joystick  y el slider en la interfaz para controlar el movimiento del carrito y de la cámara.
+3. Monitorea desde de la interfaz.
 
-#### Envío de Notificaciones a Telegram:
 
-1. Configura el nodo de Telegram con tu bot token y chat ID.
-2. Asegúrate de que los nodos de detección de objetos estén correctamente configurados para enviar mensajes a Telegram cuando se detecte un objeto.
+![Vista Distancia](https://drive.google.com/uc?export=view&id=1RDivqjnibyzz6wmNpZ_P7obzaYD6cQr)
+![Vista Distancia2](https://drive.google.com/uc?export=view&id=1ciQBFPTMdOTsO2uHmH_BRyFJNcHP3BE8)
 
-    
+4. Recibe las notificaciones en Telegram
 
-Caso de uso
+![Configuración TokenBot ](https://drive.google.com/uc?export=view&id=1P439zp3ty86hYFqsgo_H4HXCE9IzezKt)
 
-ofreciendo una solución innovadora para mejorar la seguridad y la logística en almacenes y bodegas. Equipado con una cámara ESP32-CAM y varios sensores, el carrito puede identificar intrusos o seguir objetos importantes. Si detecta algo sospechoso o inusual, envía una notificación inmediata a través de Telegram, incluyendo imágenes del objeto o intruso detectado.
+### Ejemplo de uso:
+
+![Movimiento Carrito](https://drive.google.com/uc?export=view&id=)
+![Interfaz del Dashboard](https://drive.google.com/uc?export=view&id=)
+![Movimiento Cámara](https://drive.google.com/uc?export=view&id=)
+
+## Caso de uso:
+
+### Identifición de objetos en áreas específicas para la optimización de la seguridad y trazabilidad en entornos industriales como bodegas y almacenes:
+Permite implementar una solución innovadora para mejorar la seguridad y la logística en almacenes y bodegas. Equipado con una cámara ESP32-CAM y varios sensores, el carrito puede identificar intrusos o seguir objetos importantes. Si detecta algo sospechoso o inusual, envía una notificación inmediata a través de Telegram, mediante imágenes del objeto o intruso detectado.
 
 
 ## Servicios
-
 - Monitoreo continuo de seguridad.
 - Envío de notificaciones por medio de Telegram.
-- Control remoto mediante Wifi o Bluetooth.
+- Control remoto mediante Wifi.
 
 
 ## Créditos
