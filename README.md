@@ -187,8 +187,7 @@ Cambia el nombre del Bot, por el creado en Telegram.
 2. Utiliza el joystick  y el slider en la interfaz para controlar el movimiento del carrito y de la cámara.
 3. Monitorea desde de la interfaz.
 
-
-![Vista Distancia](https://drive.google.com/uc?export=view&id=1RDivqjnibyzz6wmNpZ_P7obzaYD6cQr)
+![Vista Distancia](https://drive.google.com/uc?export=view&id=1RDivqjnibyzz6wmNpZ_P7obzaYD6cQrP)
 ![Vista Distancia2](https://drive.google.com/uc?export=view&id=1ciQBFPTMdOTsO2uHmH_BRyFJNcHP3BE8)
 
 4. Recibe las notificaciones en Telegram
